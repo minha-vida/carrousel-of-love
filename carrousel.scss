@@ -1,0 +1,76 @@
+@import 'variables';
+
+.carrousel {
+  width: 100%;
+  min-height: 180px;
+  position: relative;
+  
+  > .arrow {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    cursor: pointer;
+  }
+  
+  > .-prev-arrow {
+    left: 0;
+  }
+  
+  > .-next-arrow {
+    right: 0;
+  }
+  
+  > .image-container {
+    width: calc(100% - 40px);
+    min-height: 200px;
+    margin-left: 20px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    
+    > .image {
+      opacity: 0;
+      position: absolute;
+      transition: all 1s ease-in-out;
+      right: 0;
+      left: 0;
+      height: calc(100% - 20px);
+      margin: 0 auto;
+      background-size: contain;
+      
+      &.-left {
+        left: -200%;
+      }
+      
+      &.-right {
+        right: 200%;
+      }
+      
+      &.-visible {
+        opacity: 1;
+      }
+    }
+  }
+  
+  > .counter {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;    
+    
+    > .ball {
+      transition: color .3s ease-in-out;
+      background-color: $gray-medium;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      margin: 0 9px;
+      
+      &.-active {
+        background-color: $primary-color;
+      }
+    }
+  }
+}
